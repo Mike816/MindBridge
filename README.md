@@ -9,15 +9,6 @@ resources.
 
 ---
 
-# 4. In a new terminal — set a persistent key and start the server
-export ENCRYPTION_KEY=$(openssl rand -hex 32)
-echo "SAVE THIS KEY: $ENCRYPTION_KEY"
-npm run build
-node server/index.js
-
-# 5. In another terminal — tunnel it publicly
-cloudflared tunnel --url http://localhost:3001
-
 
 ## Architecture
 
@@ -158,4 +149,4 @@ mindbridge/
 
 ## License
 
-Built for [Hackathon Name] — Healthcare Education Track.
+Built for PiHacks — Healthcare Education Track.
