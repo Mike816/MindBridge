@@ -1,0 +1,200 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-brand svg { color: var(--accent); }
+
+.hamburger-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.hamburger-btn:hover {
+  background: var(--bg-card);
+  color: var(--text);
+  border-color: var(--border-focus);
+}
+
+.header-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.header-badge svg { width: 12px; height: 12px; }
+
+/* ─── USER MENU ─── */
+.header-user-area {
+  position: relative;
+}
+
+.header-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.header-user-btn:hover {
+  border-color: var(--border-focus);
+  background: var(--bg-card-hover);
+}
+
+.header-user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.header-username {
+  color: var(--text-dim);
+}
+
+/* ─── DROPDOWN ─── */
+.header-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 200px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease;
+}
+
+.header-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header-dropdown-item:last-child { border-bottom: none; }
+.header-dropdown-item:hover {
+  background: var(--bg-card-hover);
+  color: var(--text);
+}
+.header-dropdown-item.danger { color: #e88a8a; }
+.header-dropdown-item.danger:hover { background: var(--danger-dim); }
+
+.header-dropdown-confirm {
+  padding: 14px;
+}
+.header-dropdown-confirm p {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.header-confirm-yes {
+  background: rgba(232, 92, 92, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(232, 92, 92, 0.3);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header-confirm-yes:hover {
+  background: rgba(232, 92, 92, 0.25);
+}
+
+.header-confirm-no {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.header-confirm-no:hover {
+  background: var(--bg-card);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 12px 16px;
+  }
+  .header-title {
+    font-size: 17px;
+  }
+  .header-username {
+    display: none;
+  }
+  .header-user-btn {
+    padding: 4px;
+    border-radius: 50%;
+  }
+  .header-badge {
+    font-size: 0;
+    gap: 0;
+    padding: 6px;
+    border-radius: 50%;
+  }
+  .header-badge svg { width: 14px; height: 14px; }
+}

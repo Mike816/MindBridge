@@ -1,0 +1,177 @@
+/* ─── QUESTIONNAIRE LAYOUT ─── */
+.questionnaire-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.questionnaire-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 24px;
+}
+.questionnaire-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.questionnaire-header p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* ─── PROGRESS BAR ─── */
+.q-progress     { height: 3px; background: var(--border); }
+.q-progress-bar { height: 100%; background: var(--accent); transition: width 0.4s ease; }
+
+/* ─── QUESTION BODY ─── */
+.q-body {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 24px;
+}
+.q-question-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.q-question-text {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 48px;
+}
+
+/* ─── OPTIONS ─── */
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.q-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.q-option:hover { background: var(--bg-card-hover); border-color: var(--border-focus); }
+.q-option.selected {
+  background: var(--accent-glow);
+  border-color: var(--accent-dim);
+}
+
+.q-option-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.q-option.selected .q-option-radio { border-color: var(--accent); }
+.q-option.selected .q-option-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ─── NAVIGATION ─── */
+.q-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.q-nav-counter { font-size: 12px; color: var(--text-muted); }
+
+/* ─── PICKER GRID ─── */
+.q-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.q-picker-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.q-picker-card:hover {
+  border-color: var(--border-focus);
+  background: var(--bg-card-hover);
+}
+.q-picker-card.completed {
+  border-color: var(--accent-dim);
+  opacity: 0.6;
+}
+.q-picker-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.q-picker-card p  { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+.q-picker-card .q-len { font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+
+/* ─── RESULT CARD ─── */
+.result-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 12px 0;
+}
+.result-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.result-score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.result-score .score-num {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Fraunces', serif;
+  color: var(--accent);
+}
+.result-score .score-label { font-size: 13px; color: var(--text-dim); }
+
+.result-severity {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.severity-minimal  { background: rgba(78, 207, 141, 0.15); color: #4ecf8d; }
+.severity-mild     { background: rgba(232, 184, 78, 0.12); color: #e8b84e; }
+.severity-moderate { background: rgba(232, 140, 78, 0.12); color: #e88c4e; }
+.severity-severe   { background: var(--danger-dim); color: var(--danger); }
+
+.result-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-style: italic;
+  line-height: 1.5;
+}

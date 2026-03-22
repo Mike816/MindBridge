@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&display=swap');
+
+:root {
+  --bg: #0a0f0d;
+  --bg-card: #111916;
+  --bg-card-hover: #162019;
+  --bg-input: #0d1310;
+  --border: #1e2e25;
+  --border-focus: #3a7d5c;
+  --text: #e8ede9;
+  --text-dim: #8a9e90;
+  --text-muted: #5a6e60;
+  --accent: #4ecf8d;
+  --accent-dim: #2a8a5a;
+  --accent-glow: rgba(78, 207, 141, 0.15);
+  --danger: #e85c5c;
+  --danger-dim: rgba(232, 92, 92, 0.15);
+  --warning: #e8b84e;
+  --warning-dim: rgba(232, 184, 78, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.fade-up  { animation: fadeUp 0.5s ease-out both; }
+.fade-in  { animation: fadeIn 0.4s ease both; }
+
+/* ─── LAYOUT ─── */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.app-body {
+  display: flex;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover:not(:disabled) {
+  background: #5de09d;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim);
+  padding: 8px 16px;
+}
+.btn-ghost:hover { color: var(--text); background: var(--bg-card); }
+
+/* ─── SCROLLBAR ─── */
+.main-scroll {
+  flex: 1 1 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px;
+  scroll-behavior: smooth;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.main-scroll::-webkit-scrollbar       { width: 6px; }
+.main-scroll::-webkit-scrollbar-track  { background: transparent; }
+.main-scroll::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 3px; }
+
+/* ─── FORM INPUTS ─── */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: var(--border-focus);
+  outline: none;
+}
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── CHAT LIST BACKDROP (mobile) ─── */
+.chat-list-backdrop {
+  display: none;
+}
+@media (max-width: 768px) {
+  .chat-list-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 199;
+  }
+}
